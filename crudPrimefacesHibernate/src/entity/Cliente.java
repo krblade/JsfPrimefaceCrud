@@ -1,6 +1,8 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -115,4 +117,32 @@ public class Cliente implements Serializable {
 		this.nomemae = nomemae;
 	}
 
+	
+	//definindo padrão dos campos
+	public Boolean isName() {
+		Pattern p = Pattern.compile("[a-z A-Z]{2,50}");
+		Matcher m = p.matcher(this.name);
+		return m.matches();
+	}
+	public Boolean isEmail() {
+		  //letra, numero, simbolo _ -
+		Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+		Matcher m = p.matcher(this.email);
+		return m.matches();
+	}
+	
+	public String firewall() {
+		 String msg="";
+		 if (! isName()) {
+			 msg += "Nome Invalido  \n";
+		 }
+		 if (! isEmail()) {
+			 msg += "Email Invalido \n";
+		 }
+		
+		 return msg;	
+		}
+	
+	
+	
 }

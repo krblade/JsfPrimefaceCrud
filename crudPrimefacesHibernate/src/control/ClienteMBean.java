@@ -14,6 +14,8 @@ import org.primefaces.event.MoveEvent;
 import dao.ClienteDao;
 import entity.Cliente;
 
+
+
 @ManagedBean
 @SessionScoped
 public class ClienteMBean {
@@ -44,11 +46,16 @@ public class ClienteMBean {
 		return "manageCliente";
 	}
 
-	public String save() {
+	public String gravar() {
+	
+		
 		ad.saveOrUpdate(cliente);
 		this.cliente = new Cliente();
 		return "cliente";
-	}
+		
+	}	
+		
+	
 
 	public Cliente getCliente() {
 		return cliente;

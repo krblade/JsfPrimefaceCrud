@@ -5,7 +5,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
+	
+	
+    <h:head>
 	<title></title>
 	<style>
 #bordas {
@@ -15,8 +17,17 @@
 </h:head>
 <h:body>
 	<div id="bordas">
+<b:navBar inverse="true" fixed="top">
+			
+			<b:navbarLinks>
+				<b:navLink value="Repositório do projeto no Github" href="https://github.com/krblade/JsfPrimefaceCrud.git"></b:navLink>
+				
+			</b:navbarLinks>
+		</b:navBar>
 
-
+			<br/>
+			<br/>
+			<br/>
 		<b:container>
 
 			<h1>Sistema simples de cadastro</h1>
@@ -51,41 +62,41 @@
 							<p:dataExporter type="xml" target="tbl" fileName="aluno" />
 						</h:commandLink>
 					</f:facet>
-					<p:column headerText="Codigo do aluno">
+					<p:column headerText="CÓDIGO">
 						<h:outputText value="#{cliente.id}" />
 					</p:column>
 
-					<p:column headerText="Nome">
+					<p:column headerText="NOME">
 						<h:outputText value="#{cliente.name}" />
 					</p:column>
 
-					<p:column headerText="cliente cpf">
+					<p:column headerText="CPF">
 						<h:outputText value="#{cliente.cpf}" />
 					</p:column>
-					<p:column headerText="Data de nascimento">
+					<p:column headerText="DATA DE NASCIMENTO">
 						<h:outputText value="#{cliente.datanasci}" />
 					</p:column>
-					<p:column headerText="Telefone">
+					<p:column headerText="TELEFONE">
 						<h:outputText value="#{cliente.telefone}" />
 					</p:column>
-					<p:column headerText="email">
+					<p:column headerText="E-MAIL">
 						<h:outputText value="#{cliente.email}" />
 					</p:column>
-					<p:column headerText="Nome do Pai">
+					<p:column headerText="NOME DO PAI">
 						<h:outputText value="#{cliente.nomepai}" />
 					</p:column>
-					<p:column headerText="Nome da Mâe">
+					<p:column headerText="NOME DA MÂE">
 						<h:outputText value="#{cliente.nomemae}" />
 					</p:column>
 
-					<p:column headerText="Editar" exportable="false">
+					<p:column headerText="EDITAR" exportable="false">
 
 						<p:commandButton action="#{clienteMBean.edit(cliente)}"
 							value="Editar" />
 
 					</p:column>
 
-					<p:column headerText="Deletar" exportable="false">
+					<p:column headerText="EXCLUIR" exportable="false">
 
 
 						<h:commandButton styleClass="ui-priority-primary"

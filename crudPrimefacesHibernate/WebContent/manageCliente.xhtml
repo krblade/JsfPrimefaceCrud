@@ -14,23 +14,28 @@
 		<b:container>
 			<h1>Sistema Simples de Cadastro </h1>
 			<h:form>
-				<p:panel id="panel" header="Cadastrar/Alterar">
+			
+				    <p:panel id="panel" header="Cadastrar/Alterar">
 
 					<h:panelGrid columns="3" cellpadding="5">
 						<p:outputLabel value="Name" />
-						<p:inputText id="name" required="required" value="#{clienteMBean.cliente.name}"
+						<p:inputText id="name" required="true" value="#{clienteMBean.cliente.name}"
 							label="name">
+							<f:validateLength minimum="2" />
+							
 						</p:inputText>
 						<br />
 						<p:outputLabel value="Cpf" />
-						<p:inputText id="cpf" required="required" value="#{clienteMBean.cliente.cpf}"
+						<p:inputText id="cpf" required="true" value="#{clienteMBean.cliente.cpf}"
 							label="cpf">
+							<f:validateLength minimum="2" />
 						</p:inputText>
 						<br />
 
 						<p:outputLabel value="Data de nascimento" />
-						<p:inputText id="data" value="#{clienteMBean.cliente.datanasci}"
+						<p:inputText id="data" required="true" value="#{clienteMBean.cliente.datanasci}"
 							label="datanasci">
+							<f:validateLength minimum="4" />
 						</p:inputText>
 						<br />
 						<p:outputLabel value="Telefone" />
@@ -55,8 +60,8 @@
 						</p:inputText>
 						<br />
 					</h:panelGrid>
-					<p:commandButton value="Salvar" update="panel"
-						action="#{clienteMBean.save}" />
+					<p:commandButton value="submit" update="panel"
+						action="#{clienteMBean.gravar}" />
 				</p:panel>
 			</h:form>
 		
