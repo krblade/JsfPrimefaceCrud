@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<style>
+#bordas {
+	background-color: #F8F8FC;
+}
+</style>
+</h:head>
+<h:body>
+	<div id="bordas">
+
+
+		<b:container>
+
+			<h1>Sistema simples de cadastro</h1>
+
+
+			<br />
+			<br />
+			<h3>cadastrar editar e exluir</h3>
+			<h:form>
+				<p:commandButton value="Cadastrar" id="new"
+					action="#{clienteMBean.newCliente}" />
+			</h:form>
+			<br />
+
+			<h:form>
+				<p:dataTable id="tbl" var="cliente"
+					value="#{clienteMBean.clienteList}"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} 
+		 {Exporters}"
+					paginator="true" rows="5" style="margin-bottom:20px">
+					<f:facet name="{Exporters}">
+						<h:commandLink>
+							<p:graphicImage value="images/excel.png" width="24" />
+							<p:dataExporter type="xls" target="tbl" fileName="aluno" />
+						</h:commandLink>
+						<h:commandLink>
+							<p:graphicImage value="images/pdf.png" width="24" />
+							<p:dataExporter type="pdf" target="tbl" fileName="aluno" />
+						</h:commandLink>
+						<h:commandLink>
+							<p:graphicImage value="images/xml.png" width="24" />
+							<p:dataExporter type="xml" target="tbl" fileName="aluno" />
+						</h:commandLink>
+					</f:facet>
+					<p:column headerText="Codigo do aluno">
+						<h:outputText value="#{cliente.id}" />
+					</p:column>
+
+					<p:column headerText="Nome">
+						<h:outputText value="#{cliente.name}" />
+					</p:column>
+
+					<p:column headerText="cliente cpf">
+						<h:outputText value="#{cliente.cpf}" />
+					</p:column>
+					<p:column headerText="Data de nascimento">
+						<h:outputText value="#{cliente.datanasci}" />
+					</p:column>
+					<p:column headerText="Telefone">
+						<h:outputText value="#{cliente.telefone}" />
+					</p:column>
+					<p:column headerText="email">
+						<h:outputText value="#{cliente.email}" />
+					</p:column>
+					<p:column headerText="Nome do Pai">
+						<h:outputText value="#{cliente.nomepai}" />
+					</p:column>
+					<p:column headerText="Nome da Mâe">
+						<h:outputText value="#{cliente.nomemae}" />
+					</p:column>
+
+					<p:column headerText="Editar" exportable="false">
+
+						<p:commandButton action="#{clienteMBean.edit(cliente)}"
+							value="Editar" />
+
+					</p:column>
+
+					<p:column headerText="Deletar" exportable="false">
+
+
+						<h:commandButton styleClass="ui-priority-primary"
+							onclick="return confirm('Tem certeza que quer Excluir?')"
+							action="#{clienteMBean.delete(cliente)}" value="Excluir" />
+					</p:column>
+
+
+				</p:dataTable>
+
+			</h:form>
+			<br />
+			<br />
+			<br />
+
+		</b:container>
+	</div>
+
+</h:body>
+</html>

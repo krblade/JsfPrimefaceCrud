@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+
+</h:head>
+<h:body>
+	<div>
+		<b:container>
+			<h1>Sistema Simples de Cadastro </h1>
+			<h:form>
+				<p:panel id="panel" header="Cadastrar/Alterar">
+
+					<h:panelGrid columns="3" cellpadding="5">
+						<p:outputLabel value="Name" />
+						<p:inputText id="name" required="required" value="#{clienteMBean.cliente.name}"
+							label="name">
+						</p:inputText>
+						<br />
+						<p:outputLabel value="Cpf" />
+						<p:inputText id="cpf" required="required" value="#{clienteMBean.cliente.cpf}"
+							label="cpf">
+						</p:inputText>
+						<br />
+
+						<p:outputLabel value="Data de nascimento" />
+						<p:inputText id="data" value="#{clienteMBean.cliente.datanasci}"
+							label="datanasci">
+						</p:inputText>
+						<br />
+						<p:outputLabel value="Telefone" />
+						<p:inputText id="telefone" value="#{clienteMBean.cliente.telefone}"
+							label="telefone">
+						</p:inputText>
+						<br />
+							<p:outputLabel value="Email" />
+						<p:inputText id="email" required="required" value="#{clienteMBean.cliente.email}"
+							label="email">
+						</p:inputText>
+						<br />
+							<p:outputLabel value="Nome do Pai" />
+						<p:inputText id="nomepai" value="#{clienteMBean.cliente.nomepai}"
+							label="nomepai">
+						</p:inputText>
+						<br />
+						
+							<p:outputLabel value="Nome da Mãe" />
+						<p:inputText id="nomemae" value="#{clienteMBean.cliente.nomemae}"
+							label="nomemae">
+						</p:inputText>
+						<br />
+					</h:panelGrid>
+					<p:commandButton value="Salvar" update="panel"
+						action="#{clienteMBean.save}" />
+				</p:panel>
+			</h:form>
+		
+		</b:container>
+	</div>
+	
+</h:body>
+</html>
